@@ -1,1 +1,68 @@
-My GitHub Page
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1.0">
+		<title>my home</title>
+		<link rel="stylesheet" href="./style.css">
+		<link href="./font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet">
+		<!--[if IE]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<style>
+			article, aside, dialog, figure, footer, header,
+			hgroup, menu, nav, section { display: block; }
+		</style>
+
+		<script type="text/javascript" src="./js/jquery-2.1.1.min.js"></script>
+		<script type="text/javascript" src="./js/low.js"></script>
+		<script type="text/javascript" src="./js/ui.js"></script>
+		<script type="text/javascript" src="./js/bg.js"></script>
+		<script type="text/javascript" src="./js/exif.js"></script>
+
+	</head>
+
+	<body>
+	
+		<div id="main">
+
+			<input id="search" type="text" placeholder="Search" />
+
+		</div>
+
+		<div id="foot">
+
+			<div id="cmd">
+				<a href="https://www.google.com/calendar">
+					<i class="fa fa-calendar"></i>
+				</a>
+				<a href="https://mail.google.com/mail/">
+					<i class="fa fa-envelope"></i>
+				</a>
+			</div>
+			
+			<div id="info"></div>
+
+		</div>
+	
+	</body>
+
+	<script>
+		/* vars */
+		var SEARCH_KEYWORD = "landscape DSC";
+		var DEFAULT_IMAGE_URLs = [
+			"./default/F1000310.JPG", "./default/F1000308.JPG", "./default/F1000258.JPG",
+			"./default/F1000206.JPG", "./default/F1000185.JPG", "./default/F1000145.JPG",
+			"./default/F1000132.JPG", "./default/DSC00280.JPG",
+		];
+	</script>
+	<script>
+		/* main functions */
+		$(function(){
+			GetImageData();
+			SetSearch();
+		});
+	</script>
+</html>
+
