@@ -3,8 +3,8 @@
 	* Google Image Search API 使い方 javascript - 目標は商店街をつくる事なんです。
 	http://itakanaya9.hatenablog.com/entry/2014/02/05/024342
 */
-function GetImageData(){
-	setTimeout(function(){ CallImageSearch(); }, 0);
+function GetImageData(delay){
+	setTimeout(function(){ CallImageSearch(); }, delay);
 }
 function CallImageSearch(){
 	loadScript(  MakeImageSearchQuery( SEARCH_KEYWORD ) );
@@ -41,7 +41,10 @@ function CookImageSearchResult(json){
 	if( image ) { 
 		SetBackGroundImage( image );
 		SetContextLink( title, url );
-		GetImageInfo( image );
+		//GetImageInfo( image );
+	}
+	if(BG_RESET_INTERVAL){
+		GetImageData(BG_RESET_INTERVAL * 1000);
 	}
 }
 

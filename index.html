@@ -5,7 +5,6 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width,initial-scale=1.0">
 		<title>my home</title>
-		<link rel="stylesheet" href="./style.css">
 		<link href="./font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet">
 		<!--[if IE]>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -14,6 +13,8 @@
 			article, aside, dialog, figure, footer, header,
 			hgroup, menu, nav, section { display: block; }
 		</style>
+		<link rel="stylesheet/less" type="text/css" href="./style.less" />
+		<script src="./less.min.js"></script>
 
 		<script type="text/javascript" src="./js/jquery-2.1.1.min.js"></script>
 		<script type="text/javascript" src="./js/low.js"></script>
@@ -25,42 +26,59 @@
 
 	<body>
 	
-		<div id="main">
+		<div id="content">
 
-			<input id="search" type="text" placeholder="Search" />
+			<div id="head">
 
-		</div>
+				<div id="usercmd">
+				
+					<a href="https://www.google.com/calendar">
+						<i class="fa fa-calendar"></i>
+					</a>
+					<a href="https://mail.google.com/mail/">
+						<i class="fa fa-envelope"></i>
+					</a>
 
-		<div id="foot">
+				</div>
 
-			<div id="cmd">
-				<a href="https://www.google.com/calendar">
-					<i class="fa fa-calendar"></i>
-				</a>
-				<a href="https://mail.google.com/mail/">
-					<i class="fa fa-envelope"></i>
-				</a>
+				<div id="syscmd">
+					<a href="#">
+						<i class="fa fa-cogs"></i>
+					</a>
+				</div>
+
 			</div>
-			
-			<div id="info"></div>
+
+
+			<div id="upper">
+			</div>
+	
+			<div id="middle">
+				<input id="search" type="text" placeholder="Search" />
+			</div>
+
+			<div id="lower">
+			</div>
+
+			<div id="foot">
+				<div id="info">
+				</div>
+			</div>
 
 		</div>
+	
 	
 	</body>
 
 	<script>
 		/* vars */
-		var SEARCH_KEYWORD = "landscape DSC";
-		var DEFAULT_IMAGE_URLs = [
-			"./default/F1000310.JPG", "./default/F1000308.JPG", "./default/F1000258.JPG",
-			"./default/F1000206.JPG", "./default/F1000185.JPG", "./default/F1000145.JPG",
-			"./default/F1000132.JPG", "./default/DSC00280.JPG",
-		];
+		var SEARCH_KEYWORD = "landscape";
+		var BG_RESET_INTERVAL = 15;//sec, 0: no reset.
 	</script>
 	<script>
 		/* main functions */
 		$(function(){
-			GetImageData();
+			GetImageData(0);
 			SetSearch();
 		});
 	</script>
