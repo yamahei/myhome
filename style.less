@@ -1,0 +1,171 @@
+/*
+	base layout
+*/
+
+.collapse-box {
+	margin: 0;
+	padding: 0;
+}
+.padded-box {
+	margin: 0;
+	padding: 1em;
+}
+
+.fill-layout{
+	.collapse-box;
+	width: 100%;
+	min-width: 100%;
+	height: 100%;
+	min-height: 100%;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.alpha-bg{
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+.boxlayout {
+	display: box;
+	display: -moz-box;
+	display: -webkit-box;
+	display: -ms-flexbox;
+}
+
+/* box-sizing */
+.sizing-content {
+	box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	-webkit-box-sizing: content-box;
+	-ms-box-sizing: content-box;
+}
+.sizing-border {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+}
+
+/* box-orient */
+.olient-horizontal {
+	box-orient: horizontal;
+	-moz-box-orient: horizontal;
+	-webkit-box-orient: horizontal;
+	-ms-flex-direction: row;
+}
+.olient-vertical {
+	box-orient: vertical;
+	-moz-box-orient: vertical;
+	-webkit-box-orient: vertical;
+	-ms-flex-direction: column;
+}
+
+.horizontal-container {
+	.boxlayout;
+	.sizing-border;
+	.olient-horizontal;
+}
+.vertical-container {
+	.boxlayout;
+	.sizing-border;
+	.olient-vertical;
+}
+
+
+.flex1 {
+    box-flex: 1;
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+}
+
+
+
+html, body, #content {
+	.fill-layout;
+}
+html{
+	background-image:url('./default.jpg');
+}
+
+#content{
+	.collapse-box;
+	.vertical-container;
+
+
+	#head{
+		.padded-box;
+		.alpha-bg;
+		.horizontal-container;
+		
+		#usercmd {
+			.flex1;
+		}
+		#syscmd {
+		}
+	}
+
+	#upper{
+		.padded-box;
+		.flex1;
+	}
+
+	#middle{
+		.padded-box;
+		text-align: center;
+	}
+
+	#lower{
+		.padded-box;
+		.flex1;
+	}
+
+	#foot{
+		.padded-box;
+		.alpha-bg;
+		.horizontal-container;
+
+		#info {
+			.flex1;
+			text-align: right;
+		}
+	}
+
+}
+
+/*
+	decorations
+*/
+html {
+	background-color: #e1e9ff;
+}
+a {
+	color: silver;
+	text-decoration: none;
+}
+a:hover{
+	color: white;
+}
+
+input#search {
+	width: 80%;
+	min-width: 16ex;
+	max-width: 48ex;
+	background-color: rgba(240, 240, 240, 0.2);
+	border: 1px solid #CCCCCC;
+	border-radius: 4px;
+	box-shadow: 0 1px 1px rgba(255, 255, 255, 0.15) inset;
+	-moz-box-shadow: 0 1px 1px rgba(255, 255, 255, 0.15) inset;
+	-webkit-box-shadow: 0 1px 1px rgba(255, 255, 255, 0.15) inset;
+	transition: background-color 0.15s ease-in-out 0s;
+	-webkit-transition: background-color 0.15s ease-in-out 0s;
+	-moz-transition: background-color 0.15s ease-in-out 0s;
+	color: #555555;
+	padding: 0.5ex 1ex;
+	font-size: 2ex;
+	line-height: 2.6ex;
+}
+input#search:focus {
+	background-color: rgba(255, 255, 255, 0.85);
+}
+
