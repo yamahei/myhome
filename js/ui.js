@@ -3,7 +3,7 @@ function SetContextLink( title, url ){
 	a.setAttribute('href', url);
 	a.innerText = title;
 	document.getElementById("info").appendChild(a);*/
-	$("#info").append("<a href='"+url+"'>"+title+"</a>");
+	$("#info").empty().append("<a href='"+url+"'>"+title+"</a>");
 }
 function SetSearch(){
 	var search = $("#search");
