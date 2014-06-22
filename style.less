@@ -81,11 +81,8 @@
 
 
 
-html, body, #content {
+html, body, #buffer, #content {
 	.fill-layout;
-}
-html{
-	background-image:url('./default.jpg');
 }
 
 #content{
@@ -168,4 +165,62 @@ input#search {
 input#search:focus {
 	background-color: rgba(255, 255, 255, 0.85);
 }
+
+#usercmd a {
+	margin-right: 1.5ex;
+}
+
+/*
+	setting
+*/
+#settingWindow {
+	position: fixed;
+	.collapse-box;
+	.fill-layout;
+	left: 0; top: 0;
+	display: none;
+	background-color: rgba(0, 0, 0, 0.5);
+
+	div.modalContent{
+		position: absolute;
+		max-width: 80%;
+		max-height: 80%;
+		margin: 10%;
+		margin: auto;
+		padding: 2ex;
+		background-color: white;
+		border-radius: 16px;
+		overflow: auto;
+	}
+
+	dl {
+		dt { margin-top: 1ex; }
+		dd * { display: block;	 }
+	}
+
+	div.footer {
+		width: 100%;
+		.collapse-box;
+		.horizontal-container;
+
+		div.left{ 
+			.flex1;
+			text-align: left; 
+		}
+		div.right{ 
+			.flex1;
+			text-align: right; 
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
 

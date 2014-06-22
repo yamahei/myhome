@@ -1,6 +1,9 @@
 /* low level functions */
 function SetBackGroundImage(url){
-	$(document.body).css('background-image', 'url(' + url + ')');
+	var BGUrl = 'url(' + url + ')';
+	var interval = BG_BUFFER_INTERVAL * 1000;
+	$(document.body).css('background-image', BGUrl);
+	setTimeout(function(){ $("#buffer").css('background-image', BGUrl); }, interval );
 }
 function GetBrowserLanguage() {
 	try { return (navigator.browserLanguage || navigator.language || navigator.userLanguage).substr(0,2) }
@@ -17,5 +20,4 @@ function GetParameterUrl(url, params){
 	var query = [url, _query.join("&")].join("?");
 	return query;
 }
-
 

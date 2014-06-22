@@ -7,7 +7,7 @@ function GetImageData(delay){
 	setTimeout(function(){ CallImageSearch(); }, delay);
 }
 function CallImageSearch(){
-	loadScript(  MakeImageSearchQuery( SEARCH_KEYWORD ) );
+	loadScript(  MakeImageSearchQuery( SEARCH_KEYWORD() ) );
 }
 function MakeImageSearchQuery(keyword){
 	var url = "http://ajax.googleapis.com/ajax/services/search/images";
@@ -35,13 +35,12 @@ function CookImageSearchResult(json){
 				title = response.titleNoFormatting;
 			else
 				title = url;
-			
+			if( image ) { 
+				SetBackGroundImage( image );
+				SetContextLink( title, url );
+				//GetImageInfo( image );
+			}
 		}
-	}
-	if( image ) { 
-		SetBackGroundImage( image );
-		SetContextLink( title, url );
-		//GetImageInfo( image );
 	}
 	if(BG_RESET_INTERVAL){
 		GetImageData(BG_RESET_INTERVAL * 1000);

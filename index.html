@@ -14,18 +14,21 @@
 			hgroup, menu, nav, section { display: block; }
 		</style>
 		<link rel="stylesheet/less" type="text/css" href="./style.less" />
-		<script src="./less.min.js"></script>
+		<script src="./js/less.min.js"></script>
 
 		<script type="text/javascript" src="./js/jquery-2.1.1.min.js"></script>
 		<script type="text/javascript" src="./js/low.js"></script>
 		<script type="text/javascript" src="./js/ui.js"></script>
 		<script type="text/javascript" src="./js/bg.js"></script>
+		<script type="text/javascript" src="./js/strage.js"></script>
+		<script type="text/javascript" src="./js/setting.js"></script>
 		<script type="text/javascript" src="./js/exif.js"></script>
 
 	</head>
 
 	<body>
 	
+		<div id="buffer">
 		<div id="content">
 
 			<div id="head">
@@ -66,18 +69,62 @@
 			</div>
 
 		</div>
+		</div>
+	
+		<div id="settingWindow">
+			<div class="modalContent">
+				<dl>
+					<!-- image search keyword -->
+					<dt>
+						<span class="label">Keyword</span>
+						<span class="explain">for BG image search</span>
+					</dt>
+					<dd>
+						<textarea id="default_keyword"></textarea>
+						<span class="format">
+							Get a random line.
+							Search the contents of a single line.
+						</span>		
+					</dd>
+	
+					<!-- shortcut icon and url -->
+					<dt>
+						<span class="label">Shortcuts</span>
+						<span class="explain">for upper command area.</span>
+					</dt>
+					<dd>
+						<textarea id="default_shortcuts"></textarea>
+						<span class="format">
+							Set "icon(font-awesome's), (blank), url" in line.
+						</span>		
+					</dd>
+
+				</dl>
+				<div class="footer">
+					<div class="left">
+						<button class="setDefault">Default</button>
+					</div>
+					<div class="right">
+						<button class="closeSetting">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
 	
 	
 	</body>
 
 	<script>
 		/* vars */
-		var SEARCH_KEYWORD = "landscape";
+		var SEARCH_KEYWORD;// = "landscape";
+		var SET_SHORTCUTS;
 		var BG_RESET_INTERVAL = 15;//sec, 0: no reset.
+		var BG_BUFFER_INTERVAL = 3;//sec.
 	</script>
 	<script>
 		/* main functions */
 		$(function(){
+			SET_SHORTCUTS();
 			GetImageData(0);
 			SetSearch();
 		});
