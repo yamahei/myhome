@@ -27,6 +27,7 @@ $(function(){
 			var key = "#" + k;
 			data[k] = $(key, modal).val();
 		}
+		data.init = true;
 		window.strage.set(data);
 	};
 	$("#syscmd a").click(function(){
